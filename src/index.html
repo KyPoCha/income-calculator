@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" http-equiv="X-UA-Compatible">
+    <title>Incomes Calculator</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap&subset=cyrillic" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+<div class="main-wrapper">
+    <h1>Incomes calculator</h1>
+    <div class="input-block">
+        <h6>Income per month</h6>
+        <div class="inputs-wrapper">
+            <input type="number" placeholder="Salary" id="income-salary" class="input">
+            <input type="number" placeholder="Freelance" id="income-freelance" class="input">
+            <input type="number" placeholder="Extra incomes" id="income-extra-1" class="input">
+            <input type="number" placeholder="Extra incomes" id="income-extra-2" class="input">
+        </div>
+    </div>
+    <div class="inputs-block-column">
+        <h6>Necessary expends</h6>
+        <div class="inputs-wrapper">
+            <input type="number" placeholder="Apartments rent" id="costs-flat" class="input">
+            <input type="number" placeholder="Communal services" id="costs-services" class="input">
+            <input type="number" placeholder="Transport" id="costs-transport" class="input">
+            <input type="number" placeholder="Loans" id="costs-loans" class="input">
+        </div>
+    </div>
+    <div class="inputs-block-column">
+        <div class="total-numb">
+            <h6>Available per month(without piggy bank)</h6>
+            <input type="number" class="total" id="total-month" value="0" readonly>
+        </div>
+        <div class="total-numb">
+            <h6>Available per day</h6>
+            <input type="number" class="total" id="total-day" value="0" readonly>
+        </div>
+        <div class="total-numb">
+            <h6>Accumulate in a year</h6>
+            <input type="number" class="total" id="total-year" value="0" readonly>
+        </div>
+    </div>
+</div>
+
+<div class="range-block">
+    <h6>Piggy bank</h6>
+    <div class="range-wrapper">
+        <input type="range" min="0" max="100" value="0" id="money-box-range">
+    </div>
+    <div><span id="total-percents">0</span>%</div>
+</div>
+<div class="result-block">
+    <div class="total-numb">
+        <h6>Accumulating</h6>
+        <input type="number" id="accumulation" value="0" readonly>
+    </div>
+    <div class="total-numb">
+        <h6>Spend</h6>
+        <input type="number" id="spend" value="0" readonly>
+    </div>
+</div>
+<script src="main.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
