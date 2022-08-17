@@ -23,3 +23,67 @@ const spend = document.getElementById("spend");
 
 let accumulation = 0;
 let totalPercents = 0;
+
+const inputs = document.querySelectorAll('.input');
+console.log(inputs);
+for (const input of inputs) {
+    input.addEventListener('input',()=>{
+        //console.log(countAvailableMoney());
+        countAvailableMoney();
+        calculationPercents();
+    })
+}
+/*
+const countAvailableMoney = () => {
+    const incomeArray = [strToNum(incomeSalary),
+        strToNum(incomeFreelance),
+        strToNum(incomeExtra1),
+        strToNum(incomeExtra2),
+        strToNum(costsFlat),
+        strToNum(costsTransport),
+        strToNum(costsService),
+        strToNum(costsLoans)];
+    return incomeArray.reduce((previousValue,currentValue) =>{
+        return previousValue + currentValue;
+    })
+};*/
+
+const countAvailableMoney = ()=>{
+    const totalPerMonth = strToNum(incomeSalary) +
+        strToNum(incomeFreelance) +
+        strToNum(incomeExtra1) +
+        strToNum(incomeExtra2);
+    const totalCosts = strToNum(costsFlat) +
+        strToNum(costsTransport) +
+        strToNum(costsService) +
+        strToNum(costsLoans);
+
+    totalMonth = totalPerMonth - totalCosts;
+    totalMonthInput.value = totalMonth;
+};
+
+const strToNum = (str) =>{
+    return str.value ? parseInt(str.value) : 0;
+};
+
+moneyBoxRange.addEventListener('input', (ev)=>{
+    const totalPercentElement = document.getElementById("total-percents");
+    totalPercents = ev.target.value;
+    totalPercentElement.innerHTML = totalPercents;
+    calculationPercents();
+});
+
+const calculationPercents = ()=>{
+    accumulation = ((totalMonth * totalPercents) / 100).toFixed();
+    accumulationInput.value = accumulation;
+
+    spend.value = totalMonth - accumulation;
+
+    totalDay = (spend.value / 30).toFixed();
+    totalDayInput.value = totalDay;
+
+    totalYear = accumulation * 12;
+    totalYearInput.value = totalYear;
+};
+
+
